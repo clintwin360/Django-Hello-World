@@ -1,4 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block main %}<p>You are logged out!</p>
-<a  href="{% url 'login' %}">Log in again</a>{% endblock %}
+
+{% block content %}
+<body id="bg" style="background-image: url('{% static "img/home_bg.jpg"%}')";>
+{% block main %}
+
+<h6 class='px-2' ><p><a style="color:white"> You are logged out!</a></p></font>
+<h5 class='px-2' ><a  href="{% url 'login' %}"><font color=#ffc107 >Log in again</a></font>
+
+{% endblock %}
+
+{% endblock %}

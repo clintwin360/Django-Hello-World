@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from .widgets import BootstrapDateTimePickerInput
 
 class NewUserForm(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -21,3 +22,9 @@ class ContactForm(forms.ModelForm):
             model = Contact
             fields = '__all__'
 """
+
+class DateForm(forms.Form):
+    date = forms.DateTimeField(
+        input_formats=['%d/%m/%Y %H:%M'], 
+        widget=BootstrapDateTimePickerInput()
+    )

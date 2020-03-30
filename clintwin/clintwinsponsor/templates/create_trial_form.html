@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Create New Clinical Trial{% endblock %}
+
+{% block content %}
+<body style="background-color:powderblue;"></body>
+<div class=' text-center p-5 ' style="color:black">
+<h2 class=' .text-secondary'>Create New Clinical Trial</h2><br/>
+  <form method="post" novalidate>
+    {% csrf_token %}
+	
+    <div class="row">
+      <div class="col-2">
+        {{ form.trialId|as_crispy_field }}
+      </div>
+	  
+	  <div class="col-2">
+        {{ form.sponsorId|as_crispy_field }}
+      </div>
+      	  
+	  <div class="col-2">
+        {{ form.recruitmentStartDate|as_crispy_field }}
+      </div>
+	  
+	  
+	  <div class="col-2">
+        {{ form.recruitmentEndDate|as_crispy_field }}
+      </div>
+	  
+	  <div class="col-2">
+        {{ form.enrollmentTarget|as_crispy_field }}
+      </div>
+	  
+	  <div class="col-2">
+        {{ form.url|as_crispy_field }}
+      </div>
+	  
+	  <div class="col-6">
+        {{ form.title|as_crispy_field }}
+      </div>
+	  
+	  <div class="col-6">
+        {{ form.objective|as_crispy_field }}
+      </div>
+	  
+	  <div class="col-4">
+        {{ form.inclusionCriteria|as_crispy_field }}
+      </div>
+	  
+	  <div class="col-4">
+        {{ form.exclusionCriteria|as_crispy_field }}
+      </div>
+	 
+	  <div class="col-4">
+        {{ form.location|as_crispy_field }}
+      </div>
+	  
+	  <div class="col-6">
+        {{ form.comments|as_crispy_field }}
+      </div>
+	  
+	  <div class="col-6">
+        {{ form.followUp|as_crispy_field }}
+      </div>
+	  
+	  <div class="col-2">
+        <button type="submit" class="btn btn-success">Save</button>
+      </div>
+  
+    </div>
+	
+  </form>
+</div>
+ 
+{% endblock %}

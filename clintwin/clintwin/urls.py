@@ -27,20 +27,20 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth import views as auth_views
 
 
-# End of new additions
-# path('accounts/login/', views.login, name='login'), 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-	path('accounts/', include('django.contrib.auth.urls')),
-	path('login/', auth_views.LoginView.as_view(template_name='login.html')),
-    path('register/', TemplateView.as_view(template_name='register.html'), name='signup'),
+	path('accounts/', include('django.contrib.auth.urls')), 
+	path('accounts/logout/', auth_views.LogoutView.as_view(template_name= 'registration/logged_out.html'), name='LogOut'),
+    path('accounts/password_reset/', auth_views.PasswordResetView.as_view(), name='password_reset'),
+	path('accounts/password_reset_done/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
 	path('signup/', views.SignUp.as_view(), name='signup'),
+	
 	path('', TemplateView.as_view(template_name='index.html'), name='index'),     
 	path('about', views.AboutPageView.as_view(), name='about'),
-	path('how_works', views.HowWorksPageView.as_view(), name='how_works'),
+    path('how_works', views.HowWorksPageView.as_view(), name='how_works'),
 	path('contact', views.ContactPageView.as_view(), name='contact'),
 	path('directions', views.DirectionsPageView.as_view(), name='directions'),
-	path('contactform', views.contact, name='contactform'),
+	path('create_trial_form', views.ClinicalTrialCreateView.as_view(), name='create_trial_form'),
 	
 ]
+

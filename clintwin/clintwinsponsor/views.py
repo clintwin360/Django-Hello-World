@@ -5,8 +5,8 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, HttpResponse, redirect
 from django.contrib import messages
 import bcrypt
-from django.contrib.auth import authenticate, login, logout
-from .models import User, UserManager, Contact
+from django.contrib.auth import authenticate, login, logout as auth_views
+from .models import User, UserManager, Contact, Sponsor, Participant, ClinicalTrial, Criteria, Categories, ClinicalTrialCriteriaResponse, QuestionSchema
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views import generic
@@ -30,9 +30,16 @@ def index(request):
 class SignUp(generic.CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('login')
-    template_name = 'register.html'
-	
+    template_name = 'registration/register.html'
 
+
+def logout(request):
+    logout(request)
+    return redirect('registration/logged_out.html')
+    
+def password_reset(request):
+    password_reset(request)
+    return redirect('registration/password_reset.html')	
 """
 def register(request):
     errors = User.objects.validator(request.POST)
@@ -82,7 +89,7 @@ def logout(request):
     messages.info(request, "Logged out successfully!")
     return redirect('/') 
 
-"""
+
 # View for contact us form
 def contact(request):
     if request.method == 'POST':
@@ -98,7 +105,7 @@ def contact(request):
         # GET, generate unbound (blank) form
         form = ContactForm()
     return render(request,'contactform.html',{'form':form})
-
+"""
 # Static page for About us
 class AboutPageView(TemplateView):
     template_name = 'about.html'
@@ -120,3 +127,8 @@ class DirectionsPageView(TemplateView):
 class MessagePageView(TemplateView):
     template_name = 'messages.html'	
 	
+
+class ClinicalTrialCreateView(generic.CreateView):
+    model = ClinicalTrial
+    fields = ('trialId', 'sponsorId', 'title', 'objective','recruitmentStartDate','recruitmentEndDate','enrollmentTarget','inclusionCriteria','exclusionCriteria','url','followUp','location','comments')
+    template_name = 'create_trial_form.html'

@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 	'clintwinsponsor',
+	'bootstrapform',
+	'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -122,4 +124,8 @@ STATIC_URL = '/static/'
 
 # New addition
 LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
+#LOGOUT_REDIRECT_URL = '/'
+#LOGOUT_REDIRECT_URL = 'registration/logged_out.html'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # Log for testing password reset emails sent to console

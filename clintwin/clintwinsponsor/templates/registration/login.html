@@ -10,15 +10,16 @@
 <form method="post">
   {% csrf_token %}
   {{ form.as_p }}
-  <button type="submit" style="background-color:lightgray">Login</button>
+  <button id="btn" type="submit" >Login</button>
 </form>
 </div >
 <br>
+<p><a style="color:white" href="{% url 'password_reset' %}">Lost password?</a></p>
 <div style="color:white">
 <h5 class='px-2' ><a href="{% url 'signup' %}"><font color=#ffc107 >Signup</a></h5></font>
 </div>
 
-<body id="bg" style="background-image: url('{% static 'home_bg.jpg' %}')";>
+<body id="bg" style="background-image: url('{% static 'img/home_bg.jpg' %}')";>
 {% endblock %}
 
 

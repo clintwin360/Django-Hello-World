@@ -18,7 +18,7 @@
 		bottom: 0;
 		width: 100%;
 		height: auto;
-		background-color:#B22222;
+		background-color:#0275d8;
 		color: white;
 		text-align: center;
 		}
@@ -29,7 +29,7 @@
 	
 	<body bgcolor="#E6E6FA">
 	
-	<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 		<a class="navbar-brand"  href="{% url 'index' %}"><p style="color:#FFC300; font-weight: 900;">ClinTwin360</p></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -37,12 +37,11 @@
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto">
-		<li class="nav-item active">
         <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
 		</li>
 								
 		<li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" style="white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           About
         </a>
        		
@@ -70,7 +69,7 @@
         </a>
        
 		<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="">Create New Clinical Trial</a>
+          <a class="dropdown-item" href="{% url 'create_trial_form' %}">Create New Clinical Trial</a>
 		  
           <a class="dropdown-item" href="">View Clinical Trials</a>
           <div class="dropdown-divider"></div>
@@ -114,11 +113,11 @@
 		</li>
 		
 		<li class="nav-item">
-		<a class="nav-link" href="{% url 'logout' %}">logout</a>
+		<a class="nav-link" href="{% url 'LogOut' %}">logout</a>
 		</li>
 		
 		<li class="nav-item">
-		<a class="nav-link" style="color:red;">Hi {{ user.username }}!  </p>	 
+		<a class="nav-link" style="color:#FFC300;">Hi {{ user.username }}!  </p>	 
 		</li>
 		{% else %}
 		
@@ -147,6 +146,13 @@
 	<p>CSCI E-599&copy; Spring 2020 Capstone Project - Team ClinTwin360</p>
 	</div>
 	
-	
+	<script>
+  $(function () {
+    $("#datetimepicker1").datetimepicker({
+      format: 'DD/MM/YYYY HH:mm',
+    });
+  });
+   </script>
+
 	</body>
 </html>

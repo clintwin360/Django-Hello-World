@@ -1,11 +1,14 @@
+
 .bg{
     width: 100%;
 	height: auto;
 	background-size: cover;
     background-repeat: no-repeat;
     background-position: top;
-    #background-attachment: fixed;
+    background-attachment: fixed;
 }
+
+
 
 
 img.bg1 {
